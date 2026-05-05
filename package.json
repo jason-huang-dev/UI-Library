@@ -1,0 +1,23 @@
+{
+  "name": "ui-library",
+  "private": true,
+  "packageManager": "yarn@4.14.1",
+  "workspaces": [
+    "apps/*",
+    "packages/*",
+    "configs/*"
+  ],
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "test": "turbo test",
+    "typecheck": "turbo typecheck",
+    "lint": "turbo lint",
+    "storybook": "yarn workspace storybook dev",
+    "docs": "yarn workspace docs dev"
+  },
+  "devDependencies": {
+    "turbo": "latest",
+    "typescript": "latest"
+  }
+}
