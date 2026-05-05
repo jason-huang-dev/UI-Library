@@ -1,23 +1,16 @@
 {
-  "name": "ui-library",
+  "name": "jason-ui-library",
   "private": true,
-  "packageManager": "yarn@4.14.1",
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "configs/*"
-  ],
+  "packageManager": "pnpm@10.0.0",
   "scripts": {
-    "dev": "turbo dev",
     "build": "turbo build",
-    "test": "turbo test",
-    "typecheck": "turbo typecheck",
-    "lint": "turbo lint",
-    "storybook": "yarn workspace storybook dev",
-    "docs": "yarn workspace docs dev"
+    "build:tokens": "pnpm --filter @jason-ui/tokens build",
+    "build:ui": "pnpm --filter @jason-ui/ui build",
+    "build:docs": "pnpm --filter docs build-storybook",
+    "vercel-build": "pnpm build:tokens && pnpm build:ui && pnpm build:docs"
   },
   "devDependencies": {
-    "turbo": "latest",
-    "typescript": "latest"
+    "turbo": "^2.0.0",
+    "typescript": "^5.0.0"
   }
 }
