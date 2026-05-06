@@ -96,6 +96,7 @@ Storybook should stay grouped by product purpose instead of implementation detai
 | `Components`    | `Button`                                                                                               |
 | `Forms`         | `TextField`, `Select`, `Checkbox`, `RadioGroup`, `Switch`, `Textarea`, `FormField`, `SearchInput`, `DatePicker`, `DateRangePicker`, `NumberInput` |
 | `Feedback`      | `Alert`, `Toast`, `LoadingSpinner`, `ProgressBar`, `Skeleton`, `EmptyState`, `ErrorState`              |
+| `Overlay`       | `Dialog`, `ConfirmDialog`, `Drawer`, `Popover`, `Tooltip`, `Menu`, `ActionMenu`                        |
 
 ---
 
@@ -105,13 +106,13 @@ These make workflows feel complete.
 
 | Done | Component       | Purpose                                   |
 | ---- | --------------- | ----------------------------------------- |
-| []  | `Dialog`        | General modal wrapper.                    |
-| []  | `ConfirmDialog` | Delete/archive/destructive confirmations. |
-| []  | `Drawer`        | Side panels for details or filters.       |
-| []  | `Popover`       | Small contextual panels.                  |
-| []  | `Tooltip`       | Help text and truncated labels.           |
-| []  | `Menu`          | Dropdown action lists.                    |
-| []  | `ActionMenu`    | Common “three dots” row actions.          |
+| [X]  | `Dialog`        | General modal wrapper.                    |
+| [X]  | `ConfirmDialog` | Delete/archive/destructive confirmations. |
+| [X]  | `Drawer`        | Side panels for details or filters.       |
+| [X]  | `Popover`       | Small contextual panels.                  |
+| [X]  | `Tooltip`       | Help text and truncated labels.           |
+| [X]  | `Menu`          | Dropdown action lists.                    |
+| [X]  | `ActionMenu`    | Common “three dots” row actions.          |
 
 For business apps, I would build `ConfirmDialog` and `ActionMenu` before a fully generic `Dialog`.
 
@@ -284,17 +285,15 @@ Storybook Controls are useful because they let you interact with component args 
 
 ---
 
-## Best next component after feedback
+## Best next component after overlays
 
-I would make **`ConfirmDialog` + `ActionMenu` next**.
+I would make **`Card` + `StatusChip` next**.
 
-Reason: the package now has foundation, forms, and feedback. The next missing piece is workflow completion: confirming destructive actions and giving table rows or page headers consistent action menus.
+Reason: the package now has foundation, forms, feedback, and overlays. The next missing piece is consistent data display for dashboard summaries, row statuses, and operational detail views.
 
 After that, build:
 
 ```txt
-Card
-StatusChip
 PageHeader
 DataTable
 ```
