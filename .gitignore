@@ -144,3 +144,6 @@ vite.config.ts.timestamp-*
 
 # Storybook build output
 storybook-static/
+
+# Vercel combined static output
+vercel-output/

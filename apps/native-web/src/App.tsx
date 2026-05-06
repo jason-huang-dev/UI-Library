@@ -12,6 +12,13 @@ export function App() {
         </Text>
         <Button label="Save changes" />
         <Button label="Secondary action" variant="secondary" />
+        <Button
+          label="Open Storybook docs"
+          onPress={() => {
+            window.location.href = "/";
+          }}
+          variant="secondary"
+        />
       </Surface>
     </View>
   );

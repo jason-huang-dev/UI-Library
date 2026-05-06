@@ -5,6 +5,7 @@ import { defineConfig } from "vite";
 const require = createRequire(import.meta.url);
 
 export default defineConfig({
+  base: "/native-web/",
   plugins: [react()],
   resolve: {
     alias: {
