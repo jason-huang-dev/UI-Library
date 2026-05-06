@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@jason-ui/ui-native": "workspace:*",
+    "vynora-ui": "workspace:*",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
     "react-native": "^0.85.3",
