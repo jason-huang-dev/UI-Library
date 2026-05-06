@@ -1,5 +1,6 @@
 packages:
   - "apps/docs"
   - "apps/storybook"
+  - "apps/storybook-native"
   - "apps/native-web"
   - "packages/*"

@@ -8,11 +8,12 @@
     "build:ui": "pnpm --filter @jason-ui/ui build",
     "build:ui-native": "pnpm --filter @jason-ui/ui-native build",
     "build:docs": "pnpm --filter storybook build",
+    "build:docs-native": "pnpm --filter storybook-native build",
     "build:native-web": "pnpm --filter native-web build",
     "build:vercel-output": "node scripts/build-vercel-output.mjs",
     "dev:native-web": "pnpm --filter native-web dev",
-    "typecheck": "pnpm build:tokens && pnpm --filter @jason-ui/tokens typecheck && pnpm --filter @jason-ui/ui typecheck && pnpm --filter @jason-ui/ui-native typecheck && pnpm --filter native-web typecheck && pnpm --filter storybook typecheck",
-    "vercel-build": "pnpm build:tokens && pnpm build:ui && pnpm build:ui-native && pnpm build:docs && pnpm build:native-web && pnpm build:vercel-output"
+    "typecheck": "pnpm build:tokens && pnpm --filter @jason-ui/tokens typecheck && pnpm --filter @jason-ui/ui typecheck && pnpm --filter @jason-ui/ui-native typecheck && pnpm --filter native-web typecheck && pnpm --filter storybook typecheck && pnpm --filter storybook-native typecheck",
+    "vercel-build": "pnpm build:tokens && pnpm build:ui && pnpm build:ui-native && pnpm build:docs && pnpm build:docs-native && pnpm build:native-web && pnpm build:vercel-output"
   },
   "devDependencies": {
     "turbo": "^2.0.0",

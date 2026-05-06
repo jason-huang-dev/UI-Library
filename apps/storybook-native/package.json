@@ -1,0 +1,28 @@
+{
+  "name": "storybook-native",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "storybook dev -p 6007",
+    "build": "storybook build",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@jason-ui/ui-native": "workspace:*",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-native": "^0.85.3",
+    "react-native-web": "^0.21.2"
+  },
+  "devDependencies": {
+    "@storybook/addon-a11y": "latest",
+    "@storybook/addon-docs": "latest",
+    "@storybook/react-vite": "latest",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^4.7.0",
+    "storybook": "latest",
+    "typescript": "^5.9.3",
+    "vite": "^5.4.21"
+  }
+}

@@ -13,9 +13,9 @@ export function App() {
         <Button label="Save changes" />
         <Button label="Secondary action" variant="secondary" />
         <Button
-          label="Open Storybook docs"
+          label="Open native Storybook"
           onPress={() => {
-            window.location.href = "/";
+            window.location.href = "/native/";
           }}
           variant="secondary"
         />

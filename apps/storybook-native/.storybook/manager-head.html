@@ -1,5 +1,5 @@
 <style>
-  .jason-ui-native-storybook-link {
+  .jason-ui-web-docs-link {
     align-items: center;
     background: #f7f4ee;
     border: 1px solid #d8cfbf;
@@ -19,21 +19,21 @@
     z-index: 9999;
   }
 
-  .jason-ui-native-storybook-link:focus-visible {
+  .jason-ui-web-docs-link:focus-visible {
     outline: 2px solid #1d6f99;
     outline-offset: 2px;
   }
 </style>
 <script>
   window.addEventListener("DOMContentLoaded", function () {
-    if (document.querySelector(".jason-ui-native-storybook-link")) {
+    if (document.querySelector(".jason-ui-web-docs-link")) {
       return;
     }
 
     var link = document.createElement("a");
-    link.className = "jason-ui-native-storybook-link";
-    link.href = "/native/";
-    link.textContent = "Native Storybook";
+    link.className = "jason-ui-web-docs-link";
+    link.href = "/";
+    link.textContent = "Web Storybook";
     document.body.appendChild(link);
   });
 </script>
