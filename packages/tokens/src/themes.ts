@@ -73,7 +73,7 @@ export const lightTheme = {
     secondary: colors.brand.waterBlue,
     secondaryHover: colors.water[500],
     secondaryActive: colors.water[700],
-    secondaryText: colors.neutral[0],
+    secondaryText: colors.brand.deepNavy,
 
     focus: colors.brand.waterBlue,
 

@@ -6,6 +6,12 @@ import { typography } from "../../../packages/tokens/src/typography";
 
 function createMuiTheme(mode: ThemeMode) {
   const tokenTheme = mode === "dark" ? darkTheme : lightTheme;
+  const accessibleText = mode === "dark"
+    ? darkTheme.color.textInverse
+    : lightTheme.color.text;
+  const primaryActionText = mode === "dark"
+    ? tokenTheme.color.primary
+    : tokenTheme.color.text;
 
   return createTheme({
     palette: {
@@ -15,7 +21,7 @@ function createMuiTheme(mode: ThemeMode) {
         paper: tokenTheme.color.surface
       },
       primary: {
-        main: tokenTheme.color.primary,
+        main: primaryActionText,
         contrastText: tokenTheme.color.primaryText
       },
       secondary: {
@@ -23,16 +29,20 @@ function createMuiTheme(mode: ThemeMode) {
         contrastText: tokenTheme.color.secondaryText
       },
       success: {
-        main: tokenTheme.color.success
+        main: tokenTheme.color.success,
+        contrastText: accessibleText
       },
       warning: {
-        main: tokenTheme.color.warning
+        main: tokenTheme.color.warning,
+        contrastText: accessibleText
       },
       error: {
-        main: tokenTheme.color.danger
+        main: tokenTheme.color.danger,
+        contrastText: accessibleText
       },
       info: {
-        main: tokenTheme.color.info
+        main: tokenTheme.color.info,
+        contrastText: accessibleText
       },
       text: {
         primary: tokenTheme.color.text,
@@ -55,6 +65,26 @@ function createMuiTheme(mode: ThemeMode) {
         lineHeight: typography.lineHeight.normal,
         letterSpacing: typography.letterSpacing.normal,
         textTransform: "none"
+      }
+    },
+    components: {
+      MuiButton: {
+        styleOverrides: {
+          root: ({ ownerState }) => (
+            ownerState.variant === "contained" && ownerState.color === "primary"
+              ? {
+                  backgroundColor: tokenTheme.color.primary,
+                  color: tokenTheme.color.primaryText,
+                  "&:hover": {
+                    backgroundColor: tokenTheme.color.primaryHover
+                  },
+                  "&:active": {
+                    backgroundColor: tokenTheme.color.primaryActive
+                  }
+                }
+              : {}
+          )
+        }
       }
     }
   });
