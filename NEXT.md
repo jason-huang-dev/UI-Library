@@ -6,14 +6,14 @@ Since you already have `Button`, I would build the package around **real app nee
 
 These make the rest of the package consistent.
 
-| Component                      | Why you need it                                                                    |
-| ------------------------------ | ---------------------------------------------------------------------------------- |
-| `ThemeProvider` / `UIProvider` | Wraps your `storybookThemes`, light/dark mode, `CssBaseline`, and global defaults. |
-| `Text` / `Typography`          | Standardizes headings, body text, captions, labels, muted text, etc.               |
-| `Icon`                         | Gives you consistent icon sizing/color behavior.                                   |
-| `Surface`                      | Reusable wrapper for panels, cards, modals, and dashboard sections.                |
-| `Divider`                      | Simple but important for layout consistency.                                       |
-| `VisuallyHidden`               | Useful for accessibility helpers.                                                  |
+| Done | Component                      | Why you need it                                                                    |
+| ---- | ------------------------------ | ---------------------------------------------------------------------------------- |
+| [X]  | `ThemeProvider` / `UIProvider` | Wraps your `storybookThemes`, light/dark mode, `CssBaseline`, and global defaults. |
+| [X]  | `Text` / `Typography`          | Standardizes headings, body text, captions, labels, muted text, etc.               |
+| [X]  | `Icon`                         | Gives you consistent icon sizing/color behavior.                                   |
+| [X]  | `Surface`                      | Reusable wrapper for panels, cards, modals, and dashboard sections.                |
+| [X]  | `Divider`                      | Simple but important for layout consistency.                                       |
+| [X]  | `VisuallyHidden`               | Useful for accessibility helpers.                                                  |
 
 I would make `UIProvider` very early because it prevents every story from manually importing `ThemeProvider`.
 
