@@ -29,18 +29,18 @@ I would make `UIProvider` very early because it prevents every story from manual
 
 After Button, this is the most important category.
 
-| Component                        | Priority                           |
-| -------------------------------- | ---------------------------------- |
-| `TextField`                      | High                               |
-| `Select`                         | High                               |
-| `Checkbox`                       | High                               |
-| `RadioGroup`                     | Medium                             |
-| `Switch`                         | Medium                             |
-| `Textarea`                       | Medium                             |
-| `FormField`                      | Very high                          |
-| `SearchInput`                    | Very high for dashboards/WMS       |
-| `DatePicker` / `DateRangePicker` | High for WMS/table filtering       |
-| `NumberInput`                    | High for inventory/quantity fields |
+| Done | Component                        | Priority                           |
+| ---- | -------------------------------- | ---------------------------------- |
+| [X]  | `TextField`                      | High                               |
+| [X]  | `Select`                         | High                               |
+| [X]  | `Checkbox`                       | High                               |
+| [X]  | `RadioGroup`                     | Medium                             |
+| [X]  | `Switch`                         | Medium                             |
+| [X]  | `Textarea`                       | Medium                             |
+| [X]  | `FormField`                      | Very high                          |
+| [X]  | `SearchInput`                    | Very high for dashboards/WMS       |
+| [X]  | `DatePicker` / `DateRangePicker` | High for WMS/table filtering       |
+| [X]  | `NumberInput`                    | High for inventory/quantity fields |
 
 The most valuable one here is probably **`FormField`**, because it gives you a standard pattern for:
 
@@ -271,17 +271,16 @@ Storybook Controls are useful because they let you interact with component args 
 
 ---
 
-## Best next component after Button
+## Best next component after inputs
 
-I would make **`TextField` + `FormField` next**.
+I would make **`Alert` + `Toast` / `Snackbar` next**.
 
-Reason: buttons alone are not enough to build real screens. Once you have `Button`, `TextField`, `Select`, `Checkbox`, and `FormField`, you can build login forms, settings forms, filter forms, create/edit dialogs, and WMS data-entry flows.
+Reason: the package now has the foundation and form layer needed for real data-entry screens. The next missing piece is standardized feedback for saves, validation summaries, async work, and recoverable errors.
 
 After that, build:
 
 ```txt
 ConfirmDialog
-Toast
 Card
 StatusChip
 PageHeader
