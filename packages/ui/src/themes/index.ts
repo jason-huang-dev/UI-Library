@@ -1,8 +1,14 @@
 import { createTheme } from "@mui/material/styles";
+import type { Theme } from "@mui/material/styles";
+import {
+  darkTheme,
+  lightTheme,
+  radii,
+  typography,
+  type ThemeMode
+} from "@jason-ui/tokens";
 
-import { radii } from "../../../packages/tokens/src/radii";
-import { darkTheme, lightTheme, type ThemeMode } from "../../../packages/tokens/src/themes";
-import { typography } from "../../../packages/tokens/src/typography";
+export type { ThemeMode };
 
 const lightActionColors = {
   primary: lightTheme.color.text,
@@ -13,7 +19,7 @@ const lightActionColors = {
   info: lightTheme.color.secondaryActive
 };
 
-function createMuiTheme(mode: ThemeMode) {
+export function createMuiTheme(mode: ThemeMode = "light"): Theme {
   const tokenTheme = mode === "dark" ? darkTheme : lightTheme;
   const accessibleText = mode === "dark"
     ? darkTheme.color.textInverse
@@ -154,7 +160,7 @@ function createMuiTheme(mode: ThemeMode) {
   });
 }
 
-export const storybookThemes = {
+export const muiThemes = {
   light: createMuiTheme("light"),
   dark: createMuiTheme("dark")
-};
+} satisfies Record<ThemeMode, Theme>;

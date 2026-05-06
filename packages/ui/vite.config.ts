@@ -14,7 +14,10 @@ export default defineConfig({
       external: [
         "react",
         "react-dom",
+        "@jason-ui/tokens",
         "@mui/material",
+        "@mui/material/styles",
+        "@mui/material/CssBaseline",
         "@emotion/react",
         "@emotion/styled"
       ]

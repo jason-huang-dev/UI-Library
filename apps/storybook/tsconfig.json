@@ -10,7 +10,11 @@
     "strict": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "paths": {
+      "@jason-ui/ui": ["../../packages/ui/src/index.ts"],
+      "@jason-ui/tokens": ["../../packages/tokens/src/index.ts"]
+    }
   },
   "include": [".storybook/**/*"]
 }
