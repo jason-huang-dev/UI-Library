@@ -6,7 +6,7 @@
     "build": "turbo build",
     "build:tokens": "pnpm --filter @jason-ui/tokens build",
     "build:ui": "pnpm --filter @jason-ui/ui build",
-    "build:docs": "pnpm --filter docs build-storybook",
+    "build:docs": "pnpm --filter storybook build",
     "vercel-build": "pnpm build:tokens && pnpm build:ui && pnpm build:docs"
   },
   "devDependencies": {
