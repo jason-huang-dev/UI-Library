@@ -1,49 +1,80 @@
-import { Pressable, StyleSheet, type ViewStyle } from "react-native";
-import { nativeThemes } from "../../../theme";
+import { useState } from "react";
+import { Pressable } from "react-native";
 import { Text } from "../../Foundation/Text";
-import { buttonStyles } from "./Button.styles";
+import {
+  buttonStyles,
+  getButtonContainerStyle,
+  getButtonTextStyle
+} from "./Button.styles";
 import type { ButtonProps } from "./Button.types";
 
 export function Button({
   children,
+  color = "primary",
+  customColor,
+  customHoverColor,
+  customTextColor,
   disabled = false,
   label,
+  onHoverIn,
+  onHoverOut,
+  size = "medium",
   style,
-  variant = "primary",
+  variant = "contained",
   ...props
 }: ButtonProps) {
-  const theme = nativeThemes.light;
-  const variantStyle: ViewStyle = variant === "primary"
-    ? { backgroundColor: theme.color.primary }
-    : {
-        backgroundColor: theme.color.surface,
-        borderColor: theme.color.border,
-        borderWidth: StyleSheet.hairlineWidth
-      };
+  const isDisabled = disabled === true;
+  const [hovered, setHovered] = useState(false);
 
   return (
     <Pressable
       accessibilityRole="button"
-      disabled={disabled}
+      disabled={isDisabled}
+      onHoverIn={(event) => {
+        setHovered(true);
+        onHoverIn?.(event);
+      }}
+      onHoverOut={(event) => {
+        setHovered(false);
+        onHoverOut?.(event);
+      }}
       style={(state) => [
         buttonStyles.base,
-        variantStyle,
-        disabled && buttonStyles.disabled,
-        state.pressed && !disabled && buttonStyles.pressed,
+        getButtonContainerStyle({
+          color,
+          customColor,
+          customHoverColor,
+          customTextColor,
+          disabled: isDisabled,
+          hovered,
+          pressed: state.pressed,
+          size,
+          variant
+        }),
+        isDisabled && buttonStyles.disabled,
+        state.pressed && !isDisabled && buttonStyles.pressed,
         typeof style === "function" ? style(state) : style
       ]}
       {...props}
     >
-      <Text
-        style={{
-          color: variant === "primary"
-            ? theme.color.primaryText
-            : theme.color.text
-        }}
-        variant="label"
-      >
-        {children ?? label}
-      </Text>
+      {(state) => (
+        <Text
+          style={getButtonTextStyle({
+            color,
+            customColor,
+            customHoverColor,
+            customTextColor,
+            disabled: isDisabled,
+            hovered,
+            pressed: state.pressed,
+            size,
+            variant
+          })}
+          variant="label"
+        >
+          {children ?? label}
+        </Text>
+      )}
     </Pressable>
   );
 }
