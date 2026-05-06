@@ -1,4 +1,5 @@
 import type { Preview } from "@storybook/react-vite";
+import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ThemeProvider } from "@mui/material/styles";
 
@@ -25,11 +26,22 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       const themeMode = context.globals.theme === "dark" ? "dark" : "light";
+      const theme = storybookThemes[themeMode];
 
       return (
-        <ThemeProvider theme={storybookThemes[themeMode]}>
+        <ThemeProvider theme={theme}>
           <CssBaseline />
-          <Story />
+          <Box
+            sx={{
+              backgroundColor: "background.default",
+              color: "text.primary",
+              minHeight: context.viewMode === "docs" ? 80 : "100vh",
+              padding: 2,
+              boxSizing: "border-box"
+            }}
+          >
+            <Story />
+          </Box>
         </ThemeProvider>
       );
     }
