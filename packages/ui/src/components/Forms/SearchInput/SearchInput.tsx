@@ -1,8 +1,8 @@
 import IconButton from "@mui/material/IconButton";
 import InputAdornment from "@mui/material/InputAdornment";
 import { forwardRef } from "react";
-import { Icon } from "../Icon";
 import { TextField } from "../TextField";
+import { Icon } from "../../Foundation/Icon";
 import type { SearchInputProps } from "./SearchInput.types";
 
 const searchPath = (

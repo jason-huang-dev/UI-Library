@@ -62,15 +62,15 @@ This keeps labels, helper text, required markers, errors, and spacing consistent
 
 These are needed for real app behavior.
 
-| Component            | Purpose                                 |
-| -------------------- | --------------------------------------- |
-| `Alert`              | Inline status messages.                 |
-| `Toast` / `Snackbar` | Temporary success/error messages.       |
-| `LoadingSpinner`     | Basic loading indicator.                |
-| `ProgressBar`        | Longer operations.                      |
-| `Skeleton`           | Loading placeholders.                   |
-| `EmptyState`         | When tables or dashboards have no data. |
-| `ErrorState`         | Reusable error panel.                   |
+| Done | Component            | Purpose                                 |
+| ---- | -------------------- | --------------------------------------- |
+| [X]  | `Alert`              | Inline status messages.                 |
+| [X]  | `Toast` / `Snackbar` | Temporary success/error messages.       |
+| [X]  | `LoadingSpinner`     | Basic loading indicator.                |
+| [X]  | `ProgressBar`        | Longer operations.                      |
+| [X]  | `Skeleton`           | Loading placeholders.                   |
+| [X]  | `EmptyState`         | When tables or dashboards have no data. |
+| [X]  | `ErrorState`         | Reusable error panel.                   |
 
 For your WMS work, `EmptyState` and `ErrorState` are extremely useful because almost every table/dashboard page needs them.
 
@@ -86,19 +86,32 @@ Example:
 
 ---
 
+## Storybook component groups
+
+Storybook should stay grouped by product purpose instead of implementation detail.
+
+| Storybook group | Components                                                                                             |
+| --------------- | ------------------------------------------------------------------------------------------------------ |
+| `Foundation`    | `Text`, `Icon`, `Surface`, `Divider`, `VisuallyHidden`                                                  |
+| `Components`    | `Button`                                                                                               |
+| `Forms`         | `TextField`, `Select`, `Checkbox`, `RadioGroup`, `Switch`, `Textarea`, `FormField`, `SearchInput`, `DatePicker`, `DateRangePicker`, `NumberInput` |
+| `Feedback`      | `Alert`, `Toast`, `LoadingSpinner`, `ProgressBar`, `Skeleton`, `EmptyState`, `ErrorState`              |
+
+---
+
 ### 4. Overlay components
 
 These make workflows feel complete.
 
-| Component       | Purpose                                   |
-| --------------- | ----------------------------------------- |
-| `Dialog`        | General modal wrapper.                    |
-| `ConfirmDialog` | Delete/archive/destructive confirmations. |
-| `Drawer`        | Side panels for details or filters.       |
-| `Popover`       | Small contextual panels.                  |
-| `Tooltip`       | Help text and truncated labels.           |
-| `Menu`          | Dropdown action lists.                    |
-| `ActionMenu`    | Common “three dots” row actions.          |
+| Done | Component       | Purpose                                   |
+| ---- | --------------- | ----------------------------------------- |
+| []  | `Dialog`        | General modal wrapper.                    |
+| []  | `ConfirmDialog` | Delete/archive/destructive confirmations. |
+| []  | `Drawer`        | Side panels for details or filters.       |
+| []  | `Popover`       | Small contextual panels.                  |
+| []  | `Tooltip`       | Help text and truncated labels.           |
+| []  | `Menu`          | Dropdown action lists.                    |
+| []  | `ActionMenu`    | Common “three dots” row actions.          |
 
 For business apps, I would build `ConfirmDialog` and `ActionMenu` before a fully generic `Dialog`.
 
@@ -119,16 +132,16 @@ For business apps, I would build `ConfirmDialog` and `ActionMenu` before a fully
 
 These are useful once your app has multiple pages.
 
-| Component     | Purpose                           |
-| ------------- | --------------------------------- |
-| `AppShell`    | Top-level page layout.            |
-| `TopNav`      | Header/navigation bar.            |
-| `SideNav`     | Sidebar navigation.               |
-| `Breadcrumbs` | Current location.                 |
-| `RecentPages` | Your custom recent pages pattern. |
-| `Tabs`        | Section switching.                |
-| `Pagination`  | Tables/lists.                     |
-| `Link`        | Themed internal/external links.   |
+| Done | Component     | Purpose                           |
+| ---- | ------------- | --------------------------------- |
+| []  | `AppShell`    | Top-level page layout.            |
+| []  | `TopNav`      | Header/navigation bar.            |
+| []  | `SideNav`     | Sidebar navigation.               |
+| []  | `Breadcrumbs` | Current location.                 |
+| []  | `RecentPages` | Your custom recent pages pattern. |
+| []  | `Tabs`        | Section switching.                |
+| []  | `Pagination`  | Tables/lists.                     |
+| []  | `Link`        | Themed internal/external links.   |
 
 For your project, I would prioritize:
 
@@ -149,18 +162,18 @@ because those define the structure of the whole product.
 
 This is where your UI package becomes truly useful.
 
-| Component              | Purpose                                      |
-| ---------------------- | -------------------------------------------- |
-| `Card`                 | Basic grouped content.                       |
-| `StatCard` / `KpiCard` | Dashboard metrics.                           |
-| `Badge`                | Small status counts.                         |
-| `Chip`                 | Filters, tags, statuses.                     |
-| `StatusChip`           | Order status, inventory status, user status. |
-| `Avatar`               | Users/accounts.                              |
-| `Table`                | Basic table wrapper.                         |
-| `DataTable`            | Sorting, filtering, pagination, selection.   |
-| `DescriptionList`      | Details pages.                               |
-| `Timeline`             | Activity/audit logs.                         |
+| Done | Component              | Purpose                                      |
+| ---- | ---------------------- | -------------------------------------------- |
+| []  | `Card`                 | Basic grouped content.                       |
+| []  | `StatCard` / `KpiCard` | Dashboard metrics.                           |
+| []  | `Badge`                | Small status counts.                         |
+| []  | `Chip`                 | Filters, tags, statuses.                     |
+| []  | `StatusChip`           | Order status, inventory status, user status. |
+| []  | `Avatar`               | Users/accounts.                              |
+| []  | `Table`                | Basic table wrapper.                         |
+| []  | `DataTable`            | Sorting, filtering, pagination, selection.   |
+| []  | `DescriptionList`      | Details pages.                               |
+| []  | `Timeline`             | Activity/audit logs.                         |
 
 For your WMS/dashboard use case, the biggest payoff is:
 
@@ -271,16 +284,15 @@ Storybook Controls are useful because they let you interact with component args 
 
 ---
 
-## Best next component after inputs
+## Best next component after feedback
 
-I would make **`Alert` + `Toast` / `Snackbar` next**.
+I would make **`ConfirmDialog` + `ActionMenu` next**.
 
-Reason: the package now has the foundation and form layer needed for real data-entry screens. The next missing piece is standardized feedback for saves, validation summaries, async work, and recoverable errors.
+Reason: the package now has foundation, forms, and feedback. The next missing piece is workflow completion: confirming destructive actions and giving table rows or page headers consistent action menus.
 
 After that, build:
 
 ```txt
-ConfirmDialog
 Card
 StatusChip
 PageHeader

@@ -50,6 +50,6 @@ These components wrap MUI controls and keep package-level defaults for sizing, f
 
 ## References
 
-- `packages/ui/src/components/FormField`
-- `packages/ui/src/components/TextField`
-- `packages/ui/src/components/DatePicker`
+- `packages/ui/src/components/Forms/FormField`
+- `packages/ui/src/components/Forms/TextField`
+- `packages/ui/src/components/Forms/DatePicker`
