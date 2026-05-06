@@ -1,7 +1,9 @@
 import MuiButton from "@mui/material/Button";
+import type { ButtonProps as MuiButtonProps } from "@mui/material/Button";
 import { alpha, styled } from "@mui/material/styles";
+import type { ComponentType } from "react";
 
-export const StyledButton = styled(MuiButton, {
+export const StyledButton: ComponentType<MuiButtonProps> = styled(MuiButton, {
   name: "JHButton",
   slot: "Root"
 })(({ theme }) => ({

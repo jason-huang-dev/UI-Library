@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main]
   pull_request:
-    branches: [main, develop]
+    branches: [main]
 
 concurrency:
   group: ci-${{ github.workflow }}-${{ github.ref }}
@@ -14,72 +14,30 @@ permissions:
   contents: read
 
 jobs:
-  quality:
-    name: Lint and Typecheck
+  verify:
+    name: Verify
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.0.0
+          run_install: false
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 22
-
-      - name: Enable Corepack
-        run: corepack enable
+          cache: pnpm
 
       - name: Install dependencies
-        run: yarn install --immutable
-
-      - name: Lint
-        run: yarn lint
+        run: pnpm install --frozen-lockfile
 
       - name: Typecheck
-        run: yarn typecheck
+        run: pnpm typecheck
 
-  test:
-    name: Tests
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Install dependencies
-        run: yarn install --immutable
-
-      - name: Run tests
-        run: yarn test
-
-  build:
-    name: Build Packages and Apps
-    runs-on: ubuntu-latest
-    needs: [quality, test]
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Enable Corepack
-        run: corepack enable
-
-      - name: Install dependencies
-        run: yarn install --immutable
-
-      - name: Build workspace
-        run: yarn build
-
-      - name: Build Storybook
-        run: yarn workspace storybook build
+      - name: Build deploy artifact
+        run: pnpm vercel-build

@@ -7,6 +7,7 @@
     "build:tokens": "pnpm --filter @jason-ui/tokens build",
     "build:ui": "pnpm --filter @jason-ui/ui build",
     "build:docs": "pnpm --filter storybook build",
+    "typecheck": "pnpm --filter @jason-ui/tokens typecheck && pnpm --filter @jason-ui/ui typecheck && pnpm --filter storybook typecheck",
     "vercel-build": "pnpm build:tokens && pnpm build:ui && pnpm build:docs"
   },
   "devDependencies": {
