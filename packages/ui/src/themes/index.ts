@@ -1,5 +1,6 @@
 import { createTheme } from "@mui/material/styles";
 import type { Theme } from "@mui/material/styles";
+import type { PaletteColorOptions } from "@mui/material/styles";
 import {
   darkTheme,
   lightTheme,
@@ -18,6 +19,20 @@ const lightActionColors = {
   error: "#B42318",
   info: lightTheme.color.secondaryActive
 };
+
+function createPaletteColor(
+  main: string,
+  contrastText: string,
+  light = main,
+  dark = main
+): PaletteColorOptions {
+  return {
+    main,
+    light,
+    dark,
+    contrastText
+  };
+}
 
 export function createMuiTheme(mode: ThemeMode = "light"): Theme {
   const tokenTheme = mode === "dark" ? darkTheme : lightTheme;
@@ -42,30 +57,22 @@ export function createMuiTheme(mode: ThemeMode = "light"): Theme {
         default: tokenTheme.color.background,
         paper: tokenTheme.color.surface
       },
-      primary: {
-        main: actionColors.primary,
-        contrastText: tokenTheme.color.primaryText
-      },
-      secondary: {
-        main: actionColors.secondary,
-        contrastText: tokenTheme.color.secondaryText
-      },
-      success: {
-        main: actionColors.success,
-        contrastText: accessibleText
-      },
-      warning: {
-        main: actionColors.warning,
-        contrastText: accessibleText
-      },
-      error: {
-        main: actionColors.error,
-        contrastText: accessibleText
-      },
-      info: {
-        main: actionColors.info,
-        contrastText: accessibleText
-      },
+      primary: createPaletteColor(
+        actionColors.primary,
+        tokenTheme.color.primaryText,
+        tokenTheme.color.primaryHover,
+        tokenTheme.color.primaryActive
+      ),
+      secondary: createPaletteColor(
+        actionColors.secondary,
+        tokenTheme.color.secondaryText,
+        tokenTheme.color.secondaryHover,
+        tokenTheme.color.secondaryActive
+      ),
+      success: createPaletteColor(actionColors.success, accessibleText),
+      warning: createPaletteColor(actionColors.warning, accessibleText),
+      error: createPaletteColor(actionColors.error, accessibleText),
+      info: createPaletteColor(actionColors.info, accessibleText),
       text: {
         primary: tokenTheme.color.text,
         secondary: tokenTheme.color.textMuted,
