@@ -87,7 +87,7 @@ function createMuiTheme(mode: ThemeMode) {
       MuiButton: {
         styleOverrides: {
           root: ({ ownerState }) => {
-            if (ownerState.variant !== "contained") {
+            if (ownerState.disabled || ownerState.variant !== "contained") {
               return {};
             }
 
