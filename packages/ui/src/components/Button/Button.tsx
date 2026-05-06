@@ -1,6 +1,11 @@
-import MuiButton from "@mui/material/Button";
+import { forwardRef } from "react";
+import { StyledButton } from "./Button.styles";
 import type { ButtonProps } from "./Button.types";
 
-export function Button(props: ButtonProps) {
-  return <MuiButton {...props} />;
-}
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  function Button(props, ref) {
+    return <StyledButton ref={ref} disableElevation {...props} />;
+  }
+);
+
+Button.displayName = "Button";
