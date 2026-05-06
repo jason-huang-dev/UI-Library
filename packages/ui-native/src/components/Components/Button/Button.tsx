@@ -5,8 +5,8 @@ import {
   type PressableProps,
   type ViewStyle
 } from "react-native";
-import { nativeThemes } from "../theme";
-import { Text } from "./Text";
+import { nativeThemes } from "../../../theme";
+import { Text } from "../../Foundation/Text";
 
 export type ButtonVariant = "primary" | "secondary";
 

@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-import { Button } from "./Button";
+import { Button } from "../../Components/Button";
 import { Surface } from "./Surface";
-import { Text } from "./Text";
+import { Text } from "../Text";
 
 const meta = {
   title: "Foundation/Surface",

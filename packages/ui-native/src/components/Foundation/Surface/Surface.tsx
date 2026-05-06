@@ -4,7 +4,7 @@ import {
   View,
   type ViewProps
 } from "react-native";
-import { nativeThemes } from "../theme";
+import { nativeThemes } from "../../../theme";
 
 export type SurfaceProps = ViewProps & {
   children: ReactNode;

@@ -4,7 +4,7 @@ import {
   StyleSheet,
   type TextProps as RNTextProps
 } from "react-native";
-import { nativeThemes } from "../theme";
+import { nativeThemes } from "../../../theme";
 
 export type NativeTextVariant = "title" | "body" | "caption" | "label";
 
