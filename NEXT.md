@@ -100,6 +100,21 @@ Storybook should stay grouped by product purpose instead of implementation detai
 
 ---
 
+## Platform packages
+
+The package split keeps platform-specific implementation details separate while sharing design tokens.
+
+| Package / app         | Purpose                                                                  |
+| --------------------- | ------------------------------------------------------------------------ |
+| `packages/ui`         | Web UI package built on MUI.                                             |
+| `packages/ui-native`  | React Native UI package built on React Native primitives.                |
+| `apps/native-web`     | Browser preview for `packages/ui-native` through React Native Web.       |
+| `apps/mobile`         | Expo/EAS app for on-device native validation, separated from root CI.    |
+
+`apps/mobile` has its own `pnpm-workspace.yaml` and `pnpm-lock.yaml`, so EAS/mobile installs stay isolated from Vercel and the default web workspace.
+
+---
+
 ### 4. Overlay components
 
 These make workflows feel complete.

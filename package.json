@@ -6,8 +6,11 @@
     "build": "turbo build",
     "build:tokens": "pnpm --filter @jason-ui/tokens build",
     "build:ui": "pnpm --filter @jason-ui/ui build",
+    "build:ui-native": "pnpm --filter @jason-ui/ui-native build",
     "build:docs": "pnpm --filter storybook build",
-    "typecheck": "pnpm build:tokens && pnpm --filter @jason-ui/tokens typecheck && pnpm --filter @jason-ui/ui typecheck && pnpm --filter storybook typecheck",
+    "build:native-web": "pnpm --filter native-web build",
+    "dev:native-web": "pnpm --filter native-web dev",
+    "typecheck": "pnpm build:tokens && pnpm --filter @jason-ui/tokens typecheck && pnpm --filter @jason-ui/ui typecheck && pnpm --filter @jason-ui/ui-native typecheck && pnpm --filter native-web typecheck && pnpm --filter storybook typecheck",
     "vercel-build": "pnpm build:tokens && pnpm build:ui && pnpm build:docs"
   },
   "devDependencies": {
