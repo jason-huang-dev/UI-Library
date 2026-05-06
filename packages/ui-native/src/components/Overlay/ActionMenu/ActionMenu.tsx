@@ -1,12 +1,6 @@
 import { Button } from "../../Components/Button";
-import { Menu, type MenuItemDefinition } from "../Menu";
-
-export type ActionMenuProps = {
-  items: MenuItemDefinition[];
-  label?: string;
-  open?: boolean;
-  onOpen?: () => void;
-};
+import { Menu } from "../Menu";
+import type { ActionMenuProps } from "./ActionMenu.types";
 
 export function ActionMenu({ items, label = "Actions", onOpen, open = false }: ActionMenuProps) {
   return (

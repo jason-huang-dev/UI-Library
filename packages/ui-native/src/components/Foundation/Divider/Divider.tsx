@@ -1,9 +1,7 @@
-import { StyleSheet, View, type ViewProps } from "react-native";
+import { View } from "react-native";
 import { nativeThemes } from "../../../theme";
-
-export type DividerProps = ViewProps & {
-  orientation?: "horizontal" | "vertical";
-};
+import { dividerStyles } from "./Divider.styles";
+import type { DividerProps } from "./Divider.types";
 
 export function Divider({ orientation = "horizontal", style, ...props }: DividerProps) {
   const theme = nativeThemes.light;
@@ -12,7 +10,7 @@ export function Divider({ orientation = "horizontal", style, ...props }: Divider
     <View
       accessibilityRole="none"
       style={[
-        orientation === "horizontal" ? styles.horizontal : styles.vertical,
+        orientation === "horizontal" ? dividerStyles.horizontal : dividerStyles.vertical,
         { backgroundColor: theme.color.border },
         style
       ]}
@@ -20,14 +18,3 @@ export function Divider({ orientation = "horizontal", style, ...props }: Divider
     />
   );
 }
-
-const styles = StyleSheet.create({
-  horizontal: {
-    height: StyleSheet.hairlineWidth,
-    width: "100%"
-  },
-  vertical: {
-    alignSelf: "stretch",
-    width: StyleSheet.hairlineWidth
-  }
-});

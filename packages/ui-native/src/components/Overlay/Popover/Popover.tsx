@@ -1,11 +1,6 @@
-import type { ReactNode } from "react";
-import { StyleSheet, View, type ViewProps } from "react-native";
 import { Surface } from "../../Foundation/Surface";
-
-export type PopoverProps = ViewProps & {
-  children: ReactNode;
-  open?: boolean;
-};
+import { popoverStyles } from "./Popover.styles";
+import type { PopoverProps } from "./Popover.types";
 
 export function Popover({ children, open = true, style, ...props }: PopoverProps) {
   if (!open) {
@@ -13,14 +8,8 @@ export function Popover({ children, open = true, style, ...props }: PopoverProps
   }
 
   return (
-    <Surface style={[styles.base, style]} {...props}>
+    <Surface style={[popoverStyles.base, style]} {...props}>
       {children}
     </Surface>
   );
 }
-
-const styles = StyleSheet.create({
-  base: {
-    maxWidth: 320
-  }
-});

@@ -1,20 +1,14 @@
-import type { ReactNode } from "react";
-import { StyleSheet, View, type ViewProps } from "react-native";
-import { Text } from "../../Foundation/Text";
+import { View } from "react-native";
 import { Surface } from "../../Foundation/Surface";
-
-export type EmptyStateProps = ViewProps & {
-  action?: ReactNode;
-  description?: ReactNode;
-  icon?: ReactNode;
-  title: ReactNode;
-};
+import { Text } from "../../Foundation/Text";
+import { emptyStateStyles } from "./EmptyState.styles";
+import type { EmptyStateProps } from "./EmptyState.types";
 
 export function EmptyState({ action, description, icon, style, title, ...props }: EmptyStateProps) {
   return (
-    <Surface muted style={[styles.base, style]} {...props}>
+    <Surface muted style={[emptyStateStyles.base, style]} {...props}>
       {icon}
-      <View style={styles.copy}>
+      <View style={emptyStateStyles.copy}>
         <Text variant="title">{title}</Text>
         {description ? <Text muted>{description}</Text> : null}
       </View>
@@ -22,14 +16,3 @@ export function EmptyState({ action, description, icon, style, title, ...props }
     </Surface>
   );
 }
-
-const styles = StyleSheet.create({
-  base: {
-    alignItems: "center",
-    gap: 12
-  },
-  copy: {
-    alignItems: "center",
-    gap: 4
-  }
-});

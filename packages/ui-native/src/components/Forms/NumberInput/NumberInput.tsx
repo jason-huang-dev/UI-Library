@@ -1,6 +1,5 @@
-import { TextField, type TextFieldProps } from "../TextField";
-
-export type NumberInputProps = Omit<TextFieldProps, "keyboardType">;
+import { TextField } from "../TextField";
+import type { NumberInputProps } from "./NumberInput.types";
 
 export function NumberInput(props: NumberInputProps) {
   return <TextField keyboardType="numeric" {...props} />;

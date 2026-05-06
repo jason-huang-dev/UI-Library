@@ -1,9 +1,5 @@
-import type { ReactNode } from "react";
-import { EmptyState, type EmptyStateProps } from "../EmptyState";
-
-export type ErrorStateProps = Omit<EmptyStateProps, "title"> & {
-  title?: ReactNode;
-};
+import { EmptyState } from "../EmptyState";
+import type { ErrorStateProps } from "./ErrorState.types";
 
 export function ErrorState({
   description = "Something went wrong. Try again or contact support if the issue continues.",

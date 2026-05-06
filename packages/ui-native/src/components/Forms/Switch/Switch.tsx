@@ -1,7 +1,6 @@
-import { Switch as RNSwitch, type SwitchProps as RNSwitchProps } from "react-native";
+import { Switch as RNSwitch } from "react-native";
 import { nativeThemes } from "../../../theme";
-
-export type SwitchProps = RNSwitchProps;
+import type { SwitchProps } from "./Switch.types";
 
 export function Switch(props: SwitchProps) {
   const theme = nativeThemes.light;

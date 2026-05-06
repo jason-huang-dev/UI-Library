@@ -1,32 +1,17 @@
-import type { ReactNode } from "react";
-import {
-  StyleSheet,
-  View,
-  type ViewProps
-} from "react-native";
+import { View } from "react-native";
 import { nativeThemes } from "../../../theme";
+import { surfaceStyles } from "./Surface.styles";
+import type { SurfaceProps } from "./Surface.types";
 
-export type SurfaceProps = ViewProps & {
-  children: ReactNode;
-  muted?: boolean;
-};
-
-export function Surface({
-  children,
-  muted = false,
-  style,
-  ...props
-}: SurfaceProps) {
+export function Surface({ children, muted = false, style, ...props }: SurfaceProps) {
   const theme = nativeThemes.light;
 
   return (
     <View
       style={[
-        styles.base,
+        surfaceStyles.base,
         {
-          backgroundColor: muted
-            ? theme.color.background
-            : theme.color.surface,
+          backgroundColor: muted ? theme.color.background : theme.color.surface,
           borderColor: theme.color.border
         },
         style
@@ -37,11 +22,3 @@ export function Surface({
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  base: {
-    borderRadius: 8,
-    borderWidth: StyleSheet.hairlineWidth,
-    padding: 16
-  }
-});

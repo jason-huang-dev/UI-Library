@@ -1,9 +1,7 @@
-import { StyleSheet, TextInput, type TextInputProps } from "react-native";
+import { TextInput } from "react-native";
 import { nativeThemes } from "../../../theme";
-
-export type TextFieldProps = TextInputProps & {
-  error?: boolean;
-};
+import { textFieldStyles } from "./TextField.styles";
+import type { TextFieldProps } from "./TextField.types";
 
 export function TextField({ error = false, placeholderTextColor, style, ...props }: TextFieldProps) {
   const theme = nativeThemes.light;
@@ -12,7 +10,7 @@ export function TextField({ error = false, placeholderTextColor, style, ...props
     <TextInput
       placeholderTextColor={placeholderTextColor ?? theme.color.textSubtle}
       style={[
-        styles.input,
+        textFieldStyles.input,
         {
           borderColor: error ? theme.color.danger : theme.color.border,
           color: theme.color.text
@@ -23,13 +21,3 @@ export function TextField({ error = false, placeholderTextColor, style, ...props
     />
   );
 }
-
-const styles = StyleSheet.create({
-  input: {
-    borderRadius: 8,
-    borderWidth: StyleSheet.hairlineWidth,
-    minHeight: 44,
-    paddingHorizontal: 12,
-    paddingVertical: 10
-  }
-});

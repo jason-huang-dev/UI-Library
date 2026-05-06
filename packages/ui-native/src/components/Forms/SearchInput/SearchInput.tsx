@@ -1,6 +1,5 @@
-import { TextField, type TextFieldProps } from "../TextField";
-
-export type SearchInputProps = Omit<TextFieldProps, "keyboardType">;
+import { TextField } from "../TextField";
+import type { SearchInputProps } from "./SearchInput.types";
 
 export function SearchInput({ placeholder = "Search", ...props }: SearchInputProps) {
   return (

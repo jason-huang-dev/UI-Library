@@ -1,8 +1,5 @@
-import { Alert, type AlertProps } from "../Alert";
-
-export type ToastProps = AlertProps & {
-  open?: boolean;
-};
+import { Alert } from "../Alert";
+import type { ToastProps } from "./Toast.types";
 
 export function Toast({ open = true, ...props }: ToastProps) {
   if (!open) {

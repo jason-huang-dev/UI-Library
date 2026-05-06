@@ -1,20 +1,7 @@
-import type { ReactNode } from "react";
-import { StyleSheet, Text } from "react-native";
-
-export type VisuallyHiddenProps = {
-  children: ReactNode;
-};
+import { Text } from "react-native";
+import { visuallyHiddenStyles } from "./VisuallyHidden.styles";
+import type { VisuallyHiddenProps } from "./VisuallyHidden.types";
 
 export function VisuallyHidden({ children }: VisuallyHiddenProps) {
-  return <Text style={styles.hidden}>{children}</Text>;
+  return <Text style={visuallyHiddenStyles.hidden}>{children}</Text>;
 }
-
-const styles = StyleSheet.create({
-  hidden: {
-    height: 1,
-    opacity: 0,
-    overflow: "hidden",
-    position: "absolute",
-    width: 1
-  }
-});

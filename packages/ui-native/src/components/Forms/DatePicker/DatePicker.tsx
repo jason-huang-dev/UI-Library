@@ -1,19 +1,5 @@
-import { TextField, type TextFieldProps } from "../TextField";
-
-export type DatePickerProps = TextFieldProps;
-
-export type DateRangePickerValue = {
-  end?: string;
-  start?: string;
-};
-
-export type DateRangePickerProps = {
-  endPlaceholder?: string;
-  onEndChangeText?: (value: string) => void;
-  onStartChangeText?: (value: string) => void;
-  startPlaceholder?: string;
-  value?: DateRangePickerValue;
-};
+import { TextField } from "../TextField";
+import type { DatePickerProps, DateRangePickerProps } from "./DatePicker.types";
 
 export function DatePicker({ placeholder = "YYYY-MM-DD", ...props }: DatePickerProps) {
   return <TextField placeholder={placeholder} {...props} />;

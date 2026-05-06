@@ -1,12 +1,6 @@
 import { Button } from "../../Components/Button";
-import { Dialog, type DialogProps } from "../Dialog";
-
-export type ConfirmDialogProps = Omit<DialogProps, "actions" | "children"> & {
-  cancelLabel?: string;
-  confirmLabel?: string;
-  onCancel?: () => void;
-  onConfirm: () => void;
-};
+import { Dialog } from "../Dialog";
+import type { ConfirmDialogProps } from "./ConfirmDialog.types";
 
 export function ConfirmDialog({
   cancelLabel = "Cancel",

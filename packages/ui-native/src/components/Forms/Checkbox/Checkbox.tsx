@@ -1,11 +1,8 @@
-import { Pressable, StyleSheet, View, type PressableProps } from "react-native";
+import { Pressable, View } from "react-native";
 import { nativeThemes } from "../../../theme";
 import { Text } from "../../Foundation/Text";
-
-export type CheckboxProps = Omit<PressableProps, "children"> & {
-  checked?: boolean;
-  label?: string;
-};
+import { checkboxStyles } from "./Checkbox.styles";
+import type { CheckboxProps } from "./Checkbox.types";
 
 export function Checkbox({ checked = false, disabled = false, label, style, ...props }: CheckboxProps) {
   const theme = nativeThemes.light;
@@ -16,15 +13,15 @@ export function Checkbox({ checked = false, disabled = false, label, style, ...p
       accessibilityState={{ checked, disabled: Boolean(disabled) }}
       disabled={Boolean(disabled)}
       style={(state) => [
-        styles.row,
-        disabled && styles.disabled,
+        checkboxStyles.row,
+        disabled && checkboxStyles.disabled,
         typeof style === "function" ? style(state) : style
       ]}
       {...props}
     >
       <View
         style={[
-          styles.box,
+          checkboxStyles.box,
           {
             backgroundColor: checked ? theme.color.primary : theme.color.surface,
             borderColor: checked ? theme.color.primary : theme.color.border
@@ -35,20 +32,3 @@ export function Checkbox({ checked = false, disabled = false, label, style, ...p
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  box: {
-    borderRadius: 4,
-    borderWidth: StyleSheet.hairlineWidth,
-    height: 20,
-    width: 20
-  },
-  disabled: {
-    opacity: 0.48
-  },
-  row: {
-    alignItems: "center",
-    flexDirection: "row",
-    gap: 10
-  }
-});

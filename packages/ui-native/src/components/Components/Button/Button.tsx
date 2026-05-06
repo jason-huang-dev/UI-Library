@@ -1,20 +1,8 @@
-import type { ReactNode } from "react";
-import {
-  Pressable,
-  StyleSheet,
-  type PressableProps,
-  type ViewStyle
-} from "react-native";
+import { Pressable, StyleSheet, type ViewStyle } from "react-native";
 import { nativeThemes } from "../../../theme";
 import { Text } from "../../Foundation/Text";
-
-export type ButtonVariant = "primary" | "secondary";
-
-export type ButtonProps = Omit<PressableProps, "children"> & {
-  children?: ReactNode;
-  label?: ReactNode;
-  variant?: ButtonVariant;
-};
+import { buttonStyles } from "./Button.styles";
+import type { ButtonProps } from "./Button.types";
 
 export function Button({
   children,
@@ -26,9 +14,7 @@ export function Button({
 }: ButtonProps) {
   const theme = nativeThemes.light;
   const variantStyle: ViewStyle = variant === "primary"
-    ? {
-        backgroundColor: theme.color.primary
-      }
+    ? { backgroundColor: theme.color.primary }
     : {
         backgroundColor: theme.color.surface,
         borderColor: theme.color.border,
@@ -39,12 +25,12 @@ export function Button({
     <Pressable
       accessibilityRole="button"
       disabled={disabled}
-      style={({ pressed }) => [
-        styles.base,
+      style={(state) => [
+        buttonStyles.base,
         variantStyle,
-        disabled && styles.disabled,
-        pressed && !disabled && styles.pressed,
-        typeof style === "function" ? style({ pressed }) : style
+        disabled && buttonStyles.disabled,
+        state.pressed && !disabled && buttonStyles.pressed,
+        typeof style === "function" ? style(state) : style
       ]}
       {...props}
     >
@@ -61,20 +47,3 @@ export function Button({
     </Pressable>
   );
 }
-
-const styles = StyleSheet.create({
-  base: {
-    alignItems: "center",
-    borderRadius: 8,
-    justifyContent: "center",
-    minHeight: 44,
-    paddingHorizontal: 16,
-    paddingVertical: 10
-  },
-  disabled: {
-    opacity: 0.48
-  },
-  pressed: {
-    opacity: 0.84
-  }
-});

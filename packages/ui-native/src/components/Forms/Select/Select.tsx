@@ -1,26 +1,14 @@
-import type { ReactNode } from "react";
-import { StyleSheet, View, type ViewProps } from "react-native";
+import { View } from "react-native";
 import { Button } from "../../Components/Button";
 import { Text } from "../../Foundation/Text";
-
-export type SelectOption = {
-  disabled?: boolean;
-  label: ReactNode;
-  value: string | number;
-};
-
-export type SelectProps = ViewProps & {
-  onValueChange?: (value: string | number) => void;
-  options: SelectOption[];
-  placeholder?: string;
-  value?: string | number;
-};
+import { selectStyles } from "./Select.styles";
+import type { SelectProps } from "./Select.types";
 
 export function Select({ onValueChange, options, placeholder = "Select", style, value, ...props }: SelectProps) {
   const selected = options.find((option) => option.value === value);
 
   return (
-    <View style={[styles.base, style]} {...props}>
+    <View style={[selectStyles.base, style]} {...props}>
       <Button
         label={selected?.label ?? placeholder}
         onPress={() => {
@@ -37,9 +25,3 @@ export function Select({ onValueChange, options, placeholder = "Select", style, 
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  base: {
-    gap: 6
-  }
-});
