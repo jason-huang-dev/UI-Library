@@ -15,4 +15,5 @@ export type CardHandProps = ViewProps & {
   cards: HandCard[];
   compact?: boolean;
   disabled?: boolean;
+  layout?: "linear" | "fan";
 };

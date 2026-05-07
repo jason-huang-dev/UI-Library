@@ -16,7 +16,14 @@ const meta = {
   args: {
     cards: [...cards],
     compact: false,
-    disabled: false
+    disabled: false,
+    layout: "linear"
+  },
+  argTypes: {
+    layout: {
+      control: "select",
+      options: ["linear", "fan"]
+    }
   }
 } satisfies Meta<typeof CardHand>;
 
@@ -29,5 +36,11 @@ export const Default: Story = {};
 export const Compact: Story = {
   args: {
     compact: true
+  }
+};
+
+export const Fan: Story = {
+  args: {
+    layout: "fan"
   }
 };
