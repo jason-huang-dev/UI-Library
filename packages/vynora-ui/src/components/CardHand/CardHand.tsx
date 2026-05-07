@@ -11,6 +11,7 @@ export function CardHand({
   ...props
 }: CardHandProps) {
   const overlap = compact ? -54 : -34;
+  const mode = compact ? "compact" : "full";
 
   return (
     <View style={[cardHandStyles.hand, style]} {...props}>
@@ -18,7 +19,13 @@ export function CardHand({
         <PlayingCard
           disabled={disabled}
           faceDown={card.faceDown}
+          foil={card.foil}
+          frame={card.frame}
+          glow={card.glow}
+          invalid={card.invalid}
           key={card.id}
+          mode={mode}
+          playable={card.playable}
           rank={card.rank}
           selected={card.selected}
           style={{

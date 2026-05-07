@@ -1,9 +1,11 @@
 import type { ViewProps } from "react-native";
-import type { CardRank, CardSuit } from "../PlayingCard";
+import type { CardCosmetic, CardRank, CardSuit } from "../../types/card";
 
-export type HandCard = {
+export type HandCard = CardCosmetic & {
   id: string;
   faceDown?: boolean;
+  invalid?: boolean;
+  playable?: boolean;
   rank: CardRank;
   selected?: boolean;
   suit: CardSuit;

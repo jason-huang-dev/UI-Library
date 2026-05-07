@@ -13,6 +13,7 @@ const vynoraUiSource = fileURLToPath(
 const tokensSource = fileURLToPath(
   new URL("../../../packages/tokens/src/index.ts", import.meta.url)
 );
+const reactNativeSvgElementsWeb = require.resolve("react-native-svg/lib/module/elements.web.js");
 
 const config: StorybookConfig = {
   framework: "@storybook/react-vite",
@@ -34,6 +35,7 @@ const config: StorybookConfig = {
         "@jason-ui/ui-native": uiNativeSource,
         "@jason-ui/tokens": tokensSource,
         "vynora-ui": vynoraUiSource,
+        "react-native-svg": reactNativeSvgElementsWeb,
         "react-native": require.resolve("react-native-web")
       }
     }

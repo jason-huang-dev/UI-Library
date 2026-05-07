@@ -7,8 +7,21 @@ const meta = {
   component: CardBack,
   tags: ["autodocs"],
   args: {
+    variant: "classic",
+    mode: "full",
     selected: false,
+    glow: false,
     disabled: false
+  },
+  argTypes: {
+    variant: {
+      control: "select",
+      options: ["classic", "premium", "pet"]
+    },
+    mode: {
+      control: "select",
+      options: ["full", "compact", "mini", "opponent"]
+    }
   }
 } satisfies Meta<typeof CardBack>;
 
@@ -23,7 +36,18 @@ export const States: Story = {
     <View style={{ flexDirection: "row", gap: 18 }}>
       <CardBack />
       <CardBack selected />
+      <CardBack glow variant="premium" />
       <CardBack disabled />
+    </View>
+  )
+};
+
+export const Variants: Story = {
+  render: () => (
+    <View style={{ flexDirection: "row", gap: 18 }}>
+      <CardBack variant="classic" />
+      <CardBack variant="premium" />
+      <CardBack variant="pet" />
     </View>
   )
 };

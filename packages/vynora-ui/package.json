@@ -21,12 +21,14 @@
   },
   "peerDependencies": {
     "react": "^18 || ^19",
-    "react-native": ">=0.76"
+    "react-native": ">=0.76",
+    "react-native-svg": ">=15"
   },
   "devDependencies": {
     "@types/react": "^19.2.14",
     "react": "^19.2.6",
     "react-native": "^0.85.3",
+    "react-native-svg": "^15.15.1",
     "react-native-web": "^0.21.2",
     "typescript": "^5.9.3"
   }

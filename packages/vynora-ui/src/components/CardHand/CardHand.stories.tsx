@@ -3,8 +3,8 @@ import { CardHand } from "./CardHand";
 
 const cards = [
   { id: "1", rank: "A", suit: "spades" },
-  { id: "2", rank: "K", selected: true, suit: "hearts" },
-  { id: "3", rank: "Q", suit: "diamonds" },
+  { frame: "legendary", foil: true, glow: true, id: "2", rank: "K", selected: true, suit: "hearts" },
+  { frame: "rare", id: "3", playable: true, rank: "Q", suit: "diamonds" },
   { id: "4", rank: "J", suit: "clubs" },
   { id: "5", rank: "10", suit: "spades" }
 ] as const;

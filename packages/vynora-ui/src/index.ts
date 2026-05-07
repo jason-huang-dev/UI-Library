@@ -7,3 +7,4 @@ export * from "./components/ActionBar";
 export * from "./components/TurnIndicator";
 export * from "./components/PetAvatar";
 export * from "./theme";
+export * from "./types/card";

@@ -34,3 +34,5 @@ export const vynoraTheme = {
     xl: 24
   }
 } as const;
+
+export { cardTheme } from "./theme/cardTheme";

@@ -1,27 +1,21 @@
 import type { ReactNode } from "react";
 import type { ViewProps } from "react-native";
+import type {
+  CardCosmetic,
+  CardDisplayMode,
+  CardRank,
+  CardSuit
+} from "../../types/card";
 
-export type CardSuit = "spades" | "hearts" | "diamonds" | "clubs";
+export type { CardRank, CardSuit };
 
-export type CardRank =
-  | "A"
-  | "2"
-  | "3"
-  | "4"
-  | "5"
-  | "6"
-  | "7"
-  | "8"
-  | "9"
-  | "10"
-  | "J"
-  | "Q"
-  | "K";
-
-export type PlayingCardProps = ViewProps & {
+export type PlayingCardProps = ViewProps & CardCosmetic & {
   children?: ReactNode;
   disabled?: boolean;
   faceDown?: boolean;
+  invalid?: boolean;
+  mode?: CardDisplayMode;
+  playable?: boolean;
   rank?: CardRank;
   selected?: boolean;
   suit?: CardSuit;
